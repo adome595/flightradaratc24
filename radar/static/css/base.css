@@ -1,0 +1,80 @@
+/* ==========================================================
+   base.css - variables, reset, page layout, shared components
+   ========================================================== */
+
+:root {
+  --bg: #0b0f17;
+  --panel: #111826;
+  --panel2: #161f31;
+  --line: #1f2b42;
+  --text: #e6edf7;
+  --mute: #8a98b3;
+  --accent: #ffb400;
+  --ok: #2ecc71;
+  --warn: #f5a524;
+  --bad: #ff4d4f;
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; margin: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ---------- page layout: sidebar + map ---------- */
+.layout {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+/* ---------- shared components ---------- */
+.scroll { flex: 1; overflow-y: auto; }
+
+.mute { color: var(--mute); font-size: 12px; }
+
+.empty { padding: 24px 16px; color: var(--mute); text-align: center; }
+
+.tag {
+  background: var(--bad);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-left: 6px;
+}
+.tag--event { background: #6c5ce7; }
+
+.btn {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover { background: var(--panel2); }
+.btn--primary { background: var(--accent); border-color: var(--accent); color: #1a1300; }
+.btn--primary:hover { background: #ffc633; }
+
+input, select {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font: inherit;
+  outline: none;
+}
+input:focus, select:focus { border-color: var(--accent); }

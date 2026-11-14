@@ -1,0 +1,26 @@
+/* ==========================================================
+   calibrate.css - panel that helps align the background image
+   ========================================================== */
+
+.calibrate {
+  position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%);
+  z-index: 1100; width: min(520px, calc(100% - 24px));
+  display: none;
+  background: rgba(17, 24, 38, .97);
+  border: 1px solid var(--accent); border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .6);
+  padding: 14px 16px;
+}
+.calibrate.open { display: block; }
+
+.calibrate__title { font-weight: 800; letter-spacing: .04em; margin-bottom: 4px; }
+.calibrate__step { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.calibrate__text { margin: 6px 0 12px; }
+.calibrate__error { color: var(--bad); margin: 0 0 10px; }
+.calibrate__actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.calibrate__code {
+  display: block; margin: 8px 0 12px; padding: 10px;
+  background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
+  font: 12px/1.5 ui-monospace, Menlo, Consolas, monospace; user-select: all; white-space: pre-wrap;
+}

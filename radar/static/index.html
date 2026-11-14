@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ATC 24 Radar</title>
+
+  <!-- Leaflet (map engine) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+
+  <!-- Our styles -->
+  <link rel="stylesheet" href="/static/css/base.css">
+  <link rel="stylesheet" href="/static/css/topbar.css">
+  <link rel="stylesheet" href="/static/css/sidebar.css">
+  <link rel="stylesheet" href="/static/css/map.css">
+  <link rel="stylesheet" href="/static/css/detail.css">
+  <link rel="stylesheet" href="/static/css/calibrate.css">
+</head>
+<body>
+
+  <!-- ============ TOP BAR ============ -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand__logo">
+        <svg viewBox="0 0 24 24"><path d="M12 1.5c.9 0 1.5.8 1.5 1.8V9l8.5 5v2l-8.5-2.4v4.4l2.3 1.7V22L12 21l-3.8 1v-1.3l2.3-1.7v-4.4L2 16v-2l8.5-5V3.3c0-1 .6-1.8 1.5-1.8z"/></svg>
+      </div>
+      <div class="brand__name">ATC24 RADAR <small>live</small></div>
+    </div>
+
+    <div class="seg" id="serverSeg">
+      <button data-server="main" class="on">Main</button>
+      <button data-server="event">Event</button>
+    </div>
+
+    <div class="chips">
+      <div class="chip"><b id="statAc">0</b>aircraft</div>
+      <div class="chip"><b id="statAtc">0</b>controllers</div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <button class="btn" id="calibrateBtn" title="Align the background image with game coordinates">Calibrate map</button>
+    <div class="clock" id="clock">--:--:--Z</div>
+    <div class="status" id="status"><i></i><span>CONNECTING</span></div>
+  </header>
+
+  <div class="layout">
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar">
+      <nav class="tabs" id="tabs">
+        <button data-tab="aircraft" class="on">Aircraft</button>
+        <button data-tab="atc">ATC</button>
+        <button data-tab="plans">Plans</button>
+        <button data-tab="atis">ATIS</button>
+      </nav>
+
+      <!-- Aircraft list -->
+      <section class="tab on" id="tab-aircraft">
+        <div class="search"><input id="filter" placeholder="Search callsign, player or type..." autocomplete="off"></div>
+        <div class="scroll" id="acList"></div>
+      </section>
+
+      <!-- Controllers -->
+      <section class="tab" id="tab-atc">
+        <div class="scroll" id="atcList"></div>
+      </section>
+
+      <!-- Flight plans -->
+      <section class="tab" id="tab-plans">
+        <div class="scroll" id="planList"></div>
+      </section>
+
+      <!-- ATIS -->
+      <section class="tab" id="tab-atis">
+        <div class="search"><select id="atisSel"></select></div>
+        <div class="scroll" id="atisBox"></div>
+      </section>
+    </aside>
+
+    <!-- ============ MAP AREA ============ -->
+    <main class="map-area">
+      <div id="map"></div>                 <!-- Leaflet map -->
+      <div class="coords" id="coords"></div>   <!-- cursor position in studs -->
+      <div class="detail" id="detail"></div>   <!-- selected aircraft panel -->
+      <div class="calibrate" id="calibrate"></div> <!-- map calibration helper -->
+    </main>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+  <script type="module" src="/static/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+/* ==========================================================
+   detail.css - panel shown when an aircraft is selected
+   ========================================================== */
+
+.detail {
+  position: absolute; top: 14px; right: 14px; width: 310px; z-index: 1000;
+  display: none;
+  background: rgba(17, 24, 38, .96);
+  border: 1px solid var(--line); border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .5);
+  overflow: hidden;
+}
+.detail.open { display: block; }
+
+.detail__head { padding: 14px 16px; background: var(--panel2); border-bottom: 1px solid var(--line); position: relative; }
+.detail__title { font-size: 20px; font-weight: 800; }
+.detail__close {
+  position: absolute; top: 10px; right: 10px;
+  background: none; border: 0; color: var(--mute); font-size: 20px; cursor: pointer; line-height: 1;
+}
+
+.route { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-size: 18px; font-weight: 800; color: var(--accent); }
+.route__arrow { color: var(--mute); font-size: 14px; }
+
+.detail__alert { background: var(--bad); color: #fff; font-weight: 800; text-align: center; padding: 6px; letter-spacing: .08em; }
+
+.stats { display: grid; grid-template-columns: 1fr 1fr; }
+.stats > div { padding: 10px 16px; border-bottom: 1px solid var(--line); }
+.stats > div:nth-child(odd) { border-right: 1px solid var(--line); }
+.stats label { display: block; font-size: 11px; color: var(--mute); text-transform: uppercase; letter-spacing: .06em; }
+.stats span { font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+@media (max-width: 800px) {
+  .detail { left: 10px; right: 10px; width: auto; top: 10px; }
+}

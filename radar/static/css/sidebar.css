@@ -1,0 +1,60 @@
+/* ==========================================================
+   sidebar.css - tabs, lists, ATC cards, ATIS text
+   ========================================================== */
+
+.sidebar {
+  width: 350px;
+  flex: none;
+  background: var(--panel);
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* ---------- tabs ---------- */
+.tabs { display: flex; border-bottom: 1px solid var(--line); }
+.tabs button {
+  flex: 1; background: none; border: 0; border-bottom: 2px solid transparent;
+  color: var(--mute); padding: 12px 4px; cursor: pointer; font: inherit; font-weight: 600;
+}
+.tabs button.on { color: var(--text); border-bottom-color: var(--accent); }
+
+.tab { display: none; flex: 1; min-height: 0; flex-direction: column; }
+.tab.on { display: flex; }
+
+.search { padding: 10px; border-bottom: 1px solid var(--line); }
+
+/* ---------- list rows (aircraft, flight plans) ---------- */
+.row {
+  display: flex; justify-content: space-between; gap: 10px;
+  padding: 10px 14px; border-bottom: 1px solid var(--line); cursor: pointer;
+}
+.row:hover { background: var(--panel2); }
+.row.active { background: #1c2740; box-shadow: inset 3px 0 0 var(--accent); }
+.row--static { cursor: default; }
+.row--static:hover { background: none; }
+
+.row__title { font-weight: 700; }
+.row__sub { color: var(--mute); font-size: 12px; }
+.row__right { text-align: right; font-variant-numeric: tabular-nums; font-size: 12px; color: var(--mute); }
+.row__right strong { color: var(--text); }
+
+/* ---------- ATC cards ---------- */
+.card { margin: 10px; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.card__title { margin: 0; padding: 8px 12px; background: var(--panel2); font-size: 13px; letter-spacing: .06em; }
+.pos { display: flex; justify-content: space-between; gap: 8px; padding: 8px 12px; border-top: 1px solid var(--line); }
+.pos__type { font-weight: 700; color: var(--accent); width: 44px; }
+.pos__who { flex: 1; }
+
+/* ---------- ATIS ---------- */
+.atis {
+  margin: 10px; padding: 12px;
+  background: var(--bg); border: 1px solid var(--line); border-radius: 10px;
+  font: 12.5px/1.5 ui-monospace, Menlo, Consolas, monospace; white-space: pre-wrap;
+}
+
+@media (max-width: 800px) {
+  .layout { flex-direction: column-reverse; }
+  .sidebar { width: 100%; height: 40vh; border-right: 0; border-top: 1px solid var(--line); }
+}
