@@ -251,4 +251,4 @@ def make_app() -> web.Application:
 if __name__ == "__main__":
     host = os.getenv("HOST", "127.0.0.1")
     port = int(os.getenv("PORT", "8080"))
-    web.run_app(make_app(), host=host, port=port)
+    web.run_app(make_app(), host=host, port=port) 
